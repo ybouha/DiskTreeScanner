@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Folder Sizes — maquette</title>
+<style>
+
+body{margin:0;background:#1e2a38}
+a{color:#2f5d9a}a:hover{color:#1e3f6b}
+button{font:inherit}
+
+body{display:flex;justify-content:center;padding:24px 0;background:#c9d1db}
+</style>
+</head>
+<body>
+<template id="tpl">
+
+<div style="width: 1440px; height: 900px; box-sizing: border-box; display: flex; flex-direction: column; background: #ffffff; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 13px; color: #1f2933; overflow: hidden; border: 1px solid #1e2a38">
+
+  <!-- Title bar -->
+  <div style="height: 32px; flex-shrink: 0; display: flex; align-items: center; gap: 16px; padding: 0 0 0 12px; background: #1e2a38; color: #e6edf5">
+    <div style="display: flex; align-items: center; gap: 8px">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9fb4d6" stroke-width="1.4" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" rx="1.5"></rect><path d="M8 1.5v13M8 7h6.5M1.5 10h6.5"></path></svg>
+      <span style="font-size: 13px; font-weight: 600">Folder Sizes</span>
+      <span style="font-size: 13px; color: #9fb0c4">— [C:] Windows</span>
+    </div>
+    <nav aria-label="Main menu" style="display: flex; gap: 2px; margin-left: 12px">
+      <button type="button" style="background: transparent; border: 0; color: #c9d4e1; padding: 4px 10px; font-size: 13px; cursor: pointer">File</button>
+      <button type="button" style="background: transparent; border: 0; color: #c9d4e1; padding: 4px 10px; font-size: 13px; cursor: pointer">Scan</button>
+      <button type="button" style="background: transparent; border: 0; color: #c9d4e1; padding: 4px 10px; font-size: 13px; cursor: pointer">View</button>
+      <button type="button" style="background: transparent; border: 0; color: #c9d4e1; padding: 4px 10px; font-size: 13px; cursor: pointer">Options</button>
+      <button type="button" style="background: transparent; border: 0; color: #c9d4e1; padding: 4px 10px; font-size: 13px; cursor: pointer">Help</button>
+    </nav>
+    <div style="flex: 1"></div>
+    <div style="display: flex; border: 1px solid #4a5d74; border-radius: 2px; overflow: hidden">
+      <button type="button" style="background: #3d5370; color: #ffffff; border: 0; padding: 2px 8px; font-size: 12px; font-weight: 600">EN</button>
+      <button type="button" style="background: transparent; color: #9fb0c4; border: 0; padding: 2px 8px; font-size: 12px; font-weight: 600">FR</button>
+    </div>
+    <div style="display: flex">
+      <button type="button" aria-label="Minimize" style="width: 46px; height: 32px; background: transparent; border: 0; color: #e6edf5; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 10 10" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M0 5h10"></path></svg></button>
+      <button type="button" aria-label="Maximize" style="width: 46px; height: 32px; background: transparent; border: 0; color: #e6edf5; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="0.5" y="0.5" width="9" height="9"></rect></svg></button>
+      <button type="button" aria-label="Close" style="width: 46px; height: 32px; background: transparent; border: 0; color: #e6edf5; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 10 10" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M0 0l10 10M10 0L0 10"></path></svg></button>
+    </div>
+  </div>
+
+  <!-- Toolbar -->
+  <div style="height: 38px; flex-shrink: 0; display: flex; align-items: center; gap: 6px; padding: 0 12px; border-bottom: 1px solid #d5dbe3; background: #ffffff">
+    <label for="drive" style="color: #4a5563; margin-right: 2px">Select:</label>
+    <select id="drive" style="height: 26px; min-width: 170px; border: 1px solid #b8c3d1; border-radius: 2px; padding: 0 6px; font: inherit; color: #1f2933; background: #ffffff">
+      <option>[C:] Windows</option>
+      <option>[D:] Data</option>
+      <option>\\wsl$\Ubuntu</option>
+      <option>\\wsl$\docker-desktop</option>
+      <option>Browse folder…</option>
+    </select>
+    <button type="button" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 10px; background: transparent; border: 0; color: #1f2933; cursor: pointer">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="#2e8b3e" aria-hidden="true"><path d="M3 1.5l8 5-8 5z"></path></svg>Scan
+    </button>
+    <button type="button" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 10px; background: transparent; border: 0; color: #8a94a3; cursor: pointer">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="#b8c3d1" aria-hidden="true"><rect x="2" y="2" width="8" height="8"></rect></svg>Stop
+    </button>
+    <div style="width: 1px; height: 20px; background: #d5dbe3; margin: 0 4px"></div>
+    <button type="button" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 10px; background: transparent; border: 0; color: #1f2933; cursor: pointer">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#2e8b3e" stroke-width="1.4" aria-hidden="true"><path d="M12 7a5 5 0 1 1-1.5-3.6M12 1.5V4H9.5"></path></svg>Refresh
+    </button>
+    <label for="q" style="display: flex; align-items: center; gap: 6px; padding: 0 6px 0 10px; color: #1f2933">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="5.5" cy="5.5" r="4"></circle><path d="M8.5 8.5L12 12"></path></svg>Search (Ctrl+F)
+    </label>
+    <input id="q" type="text" placeholder="*.vhdx, node_modules…" style="height: 24px; width: 180px; border: 1px solid #b8c3d1; border-radius: 2px; padding: 0 6px; font: inherit; font-size: 12px">
+    <button type="button" aria-label="Filter" style="height: 28px; width: 32px; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; color: #1f2933; cursor: pointer">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M1.5 2h11l-4.2 5v4.5l-2.6 1V7z"></path></svg>
+    </button>
+    <div style="width: 1px; height: 20px; background: #d5dbe3; margin: 0 4px"></div>
+    <button type="button" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 10px; background: transparent; border: 0; color: #1f2933; cursor: pointer">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M1.5 4V2.5h4l1 1.5h6v8h-11z"></path></svg>Open in Explorer
+    </button>
+    <button type="button" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 10px; background: transparent; border: 0; color: #1f2933; cursor: pointer">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 2.5H2v9h9v-3M7 7l5.5-5.5M8.5 1.5h4v4"></path></svg>Export report
+    </button>
+    <div style="flex: 1"></div>
+    <span style="font-size: 12px; color: #4a5563">Size unit</span>
+    <div style="display: flex; border: 1px solid #b8c3d1; border-radius: 2px; overflow: hidden">
+      <button type="button" style="height: 24px; padding: 0 8px; border: 0; background: #3d5370; color: #ffffff; font-size: 12px">Auto</button>
+      <button type="button" style="height: 24px; padding: 0 8px; border: 0; background: #ffffff; color: #1f2933; font-size: 12px; border-left: 1px solid #b8c3d1">MB</button>
+      <button type="button" style="height: 24px; padding: 0 8px; border: 0; background: #ffffff; color: #1f2933; font-size: 12px; border-left: 1px solid #b8c3d1">GB</button>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div style="flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 12px 18px 0 18px; background: #ffffff">
+
+    <div style="flex-shrink: 0">
+      <h1 style="margin: 0; font-size: 21px; font-weight: 400; color: #1f2933">Tree View</h1>
+      <p style="margin: 3px 0 0 0; color: #4a5563">Space used by every folder of C:\, read from the NTFS master file table. Sorted by allocated size · double-click a folder to drill in.</p>
+    </div>
+
+    <!-- KPI tiles -->
+    <div style="flex-shrink: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin-top: 12px">
+      <div style="background: #e8edf3; border: 2px solid #1e2a38; padding: 5px 12px; min-width: 0">
+        <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.4px; color: #4a5563">SELECTION</div>
+        <div style="display: flex; align-items: baseline; gap: 8px; white-space: nowrap; overflow: hidden">
+          <span style="font-size: 16px; font-weight: 700">{{sel.size}}</span>
+          <span style="font-size: 12px; color: #4a5563; overflow: hidden; text-overflow: ellipsis">{{sel.path}}</span>
+        </div>
+      </div>
+      <div style="background: #e8edf3; border: 1px solid #c5cfdb; padding: 6px 12px; min-width: 0">
+        <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.4px; color: #4a5563">TOTAL SPACE</div>
+        <div style="display: flex; align-items: baseline; gap: 8px; white-space: nowrap"><span style="font-size: 16px; font-weight: 700">335.5 GB</span><span style="font-size: 12px; color: #4a5563">NTFS · SSD</span></div>
+      </div>
+      <div style="background: #e8edf3; border: 1px solid #c5cfdb; padding: 6px 12px; min-width: 0">
+        <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.4px; color: #4a5563">SPACE USED</div>
+        <div style="display: flex; align-items: baseline; gap: 8px; white-space: nowrap"><span style="font-size: 16px; font-weight: 700">311.2 GB</span><span style="font-size: 12px; color: #4a5563">92.8 %</span></div>
+        <div style="height: 4px; background: #c5cfdb; margin-top: 3px"><div style="height: 4px; width: 92.8%; background: #b5661b"></div></div>
+      </div>
+      <div style="background: #e8edf3; border: 1px solid #c5cfdb; padding: 6px 12px; min-width: 0">
+        <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.4px; color: #4a5563">SPACE FREE</div>
+        <div style="display: flex; align-items: baseline; gap: 8px; white-space: nowrap"><span style="font-size: 16px; font-weight: 700; color: #a3540f">24.3 GB</span><span style="font-size: 12px; color: #4a5563">7.2 % · below 10 %</span></div>
+      </div>
+      <div style="background: #e8edf3; border: 1px solid #c5cfdb; padding: 6px 12px; min-width: 0">
+        <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.4px; color: #4a5563">ITEMS</div>
+        <div style="display: flex; align-items: baseline; gap: 8px; white-space: nowrap"><span style="font-size: 16px; font-weight: 700">1,984,585</span><span style="font-size: 12px; color: #4a5563">1.53 M files · 453 k folders</span></div>
+      </div>
+      <div style="background: #e8edf3; border: 1px solid #c5cfdb; padding: 6px 12px; min-width: 0">
+        <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.4px; color: #4a5563">LAST SCAN</div>
+        <div style="display: flex; align-items: baseline; gap: 8px; white-space: nowrap"><span style="font-size: 16px; font-weight: 700">5.11 s</span><span style="font-size: 12px; color: #4a5563">MFT read · 15:48:25</span></div>
+      </div>
+    </div>
+
+    <div style="flex-shrink: 0; margin: 10px 0 4px 0; display: flex; gap: 8px; align-items: baseline">
+      <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.4px; color: #1f2933">FOLDERS</span>
+      <span style="font-size: 12px; color: #4a5563">21 top-level entries · sorted by Allocated · greyed: hidden or system folders</span>
+    </div>
+
+    <!-- Tree grid -->
+    <div style="flex: 1; min-height: 0; display: flex; flex-direction: column; border: 1px solid #c5cfdb">
+      <div style="flex-shrink: 0; display: grid; grid-template-columns: minmax(0, 1fr) 368px 296px 140px; height: 22px; background: #f3f5f8; border-bottom: 1px solid #d5dbe3; font-size: 11px; font-weight: 600; letter-spacing: 0.4px; color: #4a5563">
+        <div style="display: flex; align-items: center; justify-content: center; border-right: 1px solid #d5dbe3">FOLDER</div>
+        <div style="display: flex; align-items: center; justify-content: center; border-right: 1px solid #d5dbe3">SIZE</div>
+        <div style="display: flex; align-items: center; justify-content: center; border-right: 1px solid #d5dbe3">CONTENT</div>
+        <div style="display: flex; align-items: center; justify-content: center">LAST CHANGE</div>
+      </div>
+      <div style="flex-shrink: 0; display: grid; grid-template-columns: 24px minmax(0, 1fr) 140px 112px 116px 104px 104px 88px 140px; height: 25px; background: #f3f5f8; border-bottom: 1px solid #c5cfdb; font-size: 12.5px; color: #1f2933">
+        <div style="border-right: 1px solid #e1e6ec"></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 8px; border-right: 1px solid #e1e6ec">Folder<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="#8a94a3" stroke-width="1.2" aria-hidden="true"><path d="M1.5 2h9L7 6.5V10l-2 .8V6.5z"></path></svg></div>
+        <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; border-right: 1px solid #e1e6ec">% of Parent</div>
+        <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; border-right: 1px solid #e1e6ec">Size</div>
+        <div style="display: flex; align-items: center; justify-content: flex-end; gap: 5px; padding: 0 8px; border-right: 1px solid #e1e6ec; background: #e4e9f0; font-weight: 600">Allocated<svg width="9" height="9" viewBox="0 0 10 10" fill="#3d5370" aria-hidden="true"><path d="M1 3h8L5 8z"></path></svg></div>
+        <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; border-right: 1px solid #e1e6ec">Items</div>
+        <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; border-right: 1px solid #e1e6ec">Files</div>
+        <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; border-right: 1px solid #e1e6ec">Folders</div>
+        <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px">Modified</div>
+      </div>
+      <div style="flex: 1; min-height: 0; overflow-y: auto">
+        <sc-for list="{{rows}}" as="row" hint-placeholder-count="16">
+          <div onClick="{{row.pick}}" style="display: grid; grid-template-columns: 24px minmax(0, 1fr) 140px 112px 116px 104px 104px 88px 140px; height: 23px; font-size: 12.5px; cursor: default; background: {{row.bg}}; border-bottom: 1px solid {{row.line}}">
+            <div style="display: flex; align-items: center; justify-content: center; color: #1f2933; font-size: 10px">{{row.marker}}</div>
+            <div style="display: flex; align-items: center; gap: 6px; min-width: 0; white-space: nowrap; overflow: hidden; padding-left: {{row.indent}}px; color: {{row.color}}; outline: {{row.outline}}; outline-offset: -2px">
+              <span style="width: 12px; flex-shrink: 0; color: #4a5563; font-size: 10px; text-align: center">{{row.chev}}</span>
+              <sc-if value="{{row.isDrive}}" hint-placeholder-val="{{false}}">
+                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" aria-hidden="true"><rect x="1" y="4" width="14" height="6" rx="1.5" fill="#8a94a3"></rect><circle cx="12" cy="7" r="1" fill="#e6edf5"></circle></svg>
+              </sc-if>
+              <sc-if value="{{row.isFiles}}" hint-placeholder-val="{{false}}">
+                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" stroke="#6b7684" stroke-width="1.1" aria-hidden="true"><path d="M4 1h5l3 3v9H4z" fill="#ffffff"></path><path d="M9 1v3h3"></path></svg>
+              </sc-if>
+              <sc-if value="{{row.isFolder}}" hint-placeholder-val="{{true}}">
+                <svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M1 2.5h5l1.4 1.6H15V12.5H1z" fill="{{row.icon}}"></path><path d="M1 5h14v7.5H1z" fill="{{row.iconFront}}"></path></svg>
+              </sc-if>
+              <span style="overflow: hidden; text-overflow: ellipsis">{{row.name}}</span>
+            </div>
+            <div style="position: relative; display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; margin: 3px 4px; background: #eef2f7">
+              <div style="position: absolute; left: 0; top: 0; bottom: 0; width: {{row.pct}}%; background: {{barColor}}"></div>
+              <span style="position: relative; color: #1f2933">{{row.pctTxt}}</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; font-variant-numeric: tabular-nums; color: {{row.color}}">{{row.size}}</div>
+            <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; font-variant-numeric: tabular-nums; background: rgba(61, 83, 112, 0.07); font-weight: 600; color: {{row.color}}">{{row.alloc}}</div>
+            <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; font-variant-numeric: tabular-nums; color: {{row.color}}">{{row.items}}</div>
+            <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; font-variant-numeric: tabular-nums; color: {{row.color}}">{{row.files}}</div>
+            <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; font-variant-numeric: tabular-nums; color: {{row.color}}">{{row.folders}}</div>
+            <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; font-variant-numeric: tabular-nums; color: #4a5563">{{row.mod}}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="flex-shrink: 0; height: 12px; display: flex; align-items: center; justify-content: center">
+      <span style="width: 18px; height: 3px; border-top: 1px dotted #8a94a3; border-bottom: 1px dotted #8a94a3"></span>
+    </div>
+
+    <!-- Bottom panes -->
+    <div style="flex-shrink: 0; display: flex; gap: 16px; height: 218px">
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+        <div style="margin-bottom: 4px; display: flex; gap: 8px; align-items: baseline">
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.4px">LARGEST FILES</span>
+          <span style="font-size: 12px; color: #4a5563">top 6 of 1,531,204 · in the selection and below</span>
+        </div>
+        <div style="flex: 1; border: 1px solid #c5cfdb; display: flex; flex-direction: column">
+          <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr) 260px; height: 22px; background: #f3f5f8; border-bottom: 1px solid #d5dbe3; font-size: 11px; font-weight: 600; letter-spacing: 0.4px; color: #4a5563">
+            <div style="display: flex; align-items: center; justify-content: center; border-right: 1px solid #d5dbe3">FILE</div>
+            <div style="display: flex; align-items: center; justify-content: center; border-right: 1px solid #d5dbe3">LOCATION</div>
+            <div style="display: flex; align-items: center; justify-content: center">SIZE · KIND</div>
+          </div>
+          <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr) 84px 176px; height: 24px; background: #f3f5f8; border-bottom: 1px solid #c5cfdb; font-size: 12.5px">
+            <div style="display: flex; align-items: center; padding: 0 8px; border-right: 1px solid #e1e6ec">File</div>
+            <div style="display: flex; align-items: center; padding: 0 8px; border-right: 1px solid #e1e6ec">Folder</div>
+            <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; border-right: 1px solid #e1e6ec; background: #e4e9f0; font-weight: 600">Size</div>
+            <div style="display: flex; align-items: center; padding: 0 8px">Kind</div>
+          </div>
+          <sc-for list="{{bigFiles}}" as="f" hint-placeholder-count="6">
+            <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr) 84px 176px; height: 24px; border-bottom: 1px solid #edf0f4; font-size: 12.5px">
+              <div style="display: flex; align-items: center; padding: 0 8px; font-weight: 600; white-space: nowrap; overflow: hidden">{{f.name}}</div>
+              <div style="display: flex; align-items: center; padding: 0 8px; min-width: 0; white-space: nowrap; overflow: hidden; color: #4a5563; font-family: 'Cascadia Mono', Consolas, monospace; font-size: 11.5px"><span style="overflow: hidden; text-overflow: ellipsis">{{f.dir}}</span></div>
+              <div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; font-variant-numeric: tabular-nums; font-weight: 600; background: rgba(61, 83, 112, 0.07)">{{f.size}}</div>
+              <div style="display: flex; align-items: center; gap: 7px; padding: 0 8px; white-space: nowrap">
+                <span style="width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; background: {{f.dot}}"></span>
+                <span>{{f.kind}}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="width: 452px; flex-shrink: 0; display: flex; flex-direction: column">
+        <div style="margin-bottom: 4px; display: flex; gap: 8px; align-items: baseline">
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.4px">TREEMAP</span>
+          <span style="font-size: 12px; color: #4a5563; font-family: 'Cascadia Mono', Consolas, monospace; font-size: 11.5px">C:\Users\youssef</span>
+        </div>
+        <div style="flex: 1; border: 1px solid #c5cfdb; padding: 5px; background: #f3f5f8">
+          <div style="position: relative; width: 440px; height: 180px">
+            <sc-for list="{{tiles}}" as="t" hint-placeholder-count="6">
+              <div style="position: absolute; box-sizing: border-box; left: {{t.x}}px; top: {{t.y}}px; width: {{t.w}}px; height: {{t.h}}px; border: 1px solid #ffffff; background: {{t.bg}}; color: {{t.fg}}; padding: 5px 7px; overflow: hidden">
+                <div style="font-size: 12px; font-weight: 600; white-space: nowrap">{{t.name}}</div>
+                <div style="font-size: 11.5px; white-space: nowrap">{{t.size}}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex-shrink: 0; height: 26px; display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #4a5563; border-top: 1px solid #e1e6ec; margin-top: 8px">
+      <span>Last scan 15:48:25 · 323.1 GB scanned · 304.9 GB allocated · 1.6 GB slack</span>
+      <span>Selection: {{sel.path}} — {{sel.size}}</span>
+    </div>
+  </div>
+
+  <!-- Status bar -->
+  <div style="height: 26px; flex-shrink: 0; display: flex; align-items: center; gap: 18px; padding: 0 12px; background: #1e2a38; color: #e6edf5; font-size: 12px">
+    <div style="display: flex; align-items: center; gap: 8px">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 6.5L5 3.5l3 3"></path></svg>
+      <span style="font-weight: 600">Activity log</span>
+      <span style="background: #4a5d74; border-radius: 8px; padding: 0 6px; font-size: 11px">12</span>
+      <span style="color: #c9d4e1">Scan complete in 5.11 s — 1,984,585 items</span>
+    </div>
+    <div style="flex: 1"></div>
+    <div style="display: flex; align-items: center; gap: 6px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #e0a43a"></span>C: 24.3 GB free</div>
+    <div style="display: flex; align-items: center; gap: 6px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #4fb35f"></span>NTFS · MFT direct read</div>
+    <div style="display: flex; align-items: center; gap: 6px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #4fb35f"></span>WSL: Ubuntu · docker-desktop</div>
+    <a href="#" style="color: #e6edf5">Logs</a>
+  </div>
+</div>
+</template>
+<div id="root"></div>
+<script>
+
+class DCLogic{constructor(p){this.props=p||{};this.state={};}setState(s){Object.assign(this.state,s);render();}forceUpdate(){render();}}
+function lookup(p,s){p=p.trim();if(p==='true')return true;if(p==='false')return false;if(/^-?\d/.test(p))return Number(p);return p.split('.').reduce(function(o,k){return o==null?undefined:o[k];},s);}
+function interp(str,s){var m=str.match(/^\s*\{\{([^}]+)\}\}\s*$/);if(m)return lookup(m[1],s);return str.replace(/\{\{([^}]+)\}\}/g,function(_,p){var v=lookup(p,s);return v==null?'':v;});}
+function proc(node,scope,out){node.childNodes.forEach(function(c){
+ if(c.nodeType===3){var v=interp(c.nodeValue,scope);out.appendChild(document.createTextNode(v==null?'':String(v)));return;}
+ if(c.nodeType!==1)return;var t=c.localName;
+ if(t==='sc-for'){var list=lookup(c.getAttribute('list').replace(/[{}]/g,''),scope)||[];var as=c.getAttribute('as');list.forEach(function(it,i){var s=Object.create(scope);s[as]=it;s.$index=i;proc(c,s,out);});return;}
+ if(t==='sc-if'){if(lookup(c.getAttribute('value').replace(/[{}]/g,''),scope))proc(c,scope,out);return;}
+ var el=document.createElementNS(c.namespaceURI,c.localName);
+ Array.prototype.forEach.call(c.attributes,function(a){if(/^on/i.test(a.name)){var fn=lookup(a.value.replace(/[{}]/g,''),scope);if(typeof fn==='function')el.addEventListener(a.name.slice(2).toLowerCase(),fn);}else{var v=interp(a.value,scope);el.setAttribute(a.name,v==null?'':String(v));}});
+ proc(c,scope,el);out.appendChild(el);});}
+
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { selected: 'youssef' };
+  }
+  renderVals() {
+    var data = [
+      { id: 'c', depth: 0, kind: 'drive', exp: true, name: '[C:] Windows', path: 'C:\\', pct: 100, size: '323.1 GB', alloc: '304.9 GB', items: '1,984,585', files: '1,531,204', folders: '453,381', mod: '05/11/2026 15:47' },
+      { id: 'users', depth: 1, exp: true, name: 'Users', path: 'C:\\Users', pct: 42.8, size: '130.1 GB', alloc: '130.5 GB', items: '1,055,939', files: '902,114', folders: '153,825', mod: '05/11/2026 15:46' },
+      { id: 'youssef', depth: 2, exp: true, name: 'youssef', path: 'C:\\Users\\youssef', pct: 96.1, size: '125.0 GB', alloc: '125.4 GB', items: '1,021,488', files: '874,902', folders: '146,586', mod: '05/11/2026 15:46' },
+      { id: 'appdata', depth: 3, dim: true, name: 'AppData', path: 'C:\\Users\\youssef\\AppData', pct: 52.4, size: '65.5 GB', alloc: '65.7 GB', items: '612,340', files: '528,771', folders: '83,569', mod: '05/11/2026 15:46' },
+      { id: 'nuget', depth: 3, name: '.nuget', path: 'C:\\Users\\youssef\\.nuget', pct: 14.2, size: '17.8 GB', alloc: '18.1 GB', items: '214,906', files: '188,410', folders: '26,496', mod: '04/11/2026 18:12' },
+      { id: 'source', depth: 3, name: 'source', path: 'C:\\Users\\youssef\\source', pct: 11.0, size: '13.7 GB', alloc: '13.9 GB', items: '131,552', files: '112,087', folders: '19,465', mod: '05/11/2026 14:31' },
+      { id: 'downloads', depth: 3, name: 'Downloads', path: 'C:\\Users\\youssef\\Downloads', pct: 9.3, size: '11.6 GB', alloc: '11.6 GB', items: '1,248', files: '1,201', folders: '47', mod: '03/11/2026 09:20' },
+      { id: 'onedrive', depth: 3, name: 'OneDrive', path: 'C:\\Users\\youssef\\OneDrive', pct: 6.1, size: '7.6 GB', alloc: '7.6 GB', items: '38,775', files: '34,210', folders: '4,565', mod: '05/11/2026 11:02' },
+      { id: 'public', depth: 2, name: 'Public', path: 'C:\\Users\\Public', pct: 2.9, size: '3.8 GB', alloc: '3.8 GB', items: '2,114', files: '1,980', folders: '134', mod: '12/09/2026 08:44' },
+      { id: 'pf', depth: 1, name: 'Program Files', path: 'C:\\Program Files', pct: 20.6, size: '66.2 GB', alloc: '62.7 GB', items: '272,629', files: '236,118', folders: '36,511', mod: '28/10/2026 10:05' },
+      { id: 'win', depth: 1, name: 'Windows', path: 'C:\\Windows', pct: 13.0, size: '50.0 GB', alloc: '39.6 GB', items: '444,517', files: '214,980', folders: '229,537', mod: '05/11/2026 15:40' },
+      { id: 'pf86', depth: 1, name: 'Program Files (x86)', path: 'C:\\Program Files (x86)', pct: 8.4, size: '29.7 GB', alloc: '25.6 GB', items: '164,253', files: '137,402', folders: '26,851', mod: '21/10/2026 17:22' },
+      { id: 'files', depth: 1, kind: 'files', name: '[17 Files in C:\\]', path: 'C:\\ (files)', pct: 8.0, size: '24.2 GB', alloc: '24.3 GB', items: '17', files: '17', folders: '—', mod: '05/11/2026 08:02' },
+      { id: 'progdata', depth: 1, dim: true, name: 'ProgramData', path: 'C:\\ProgramData', pct: 6.0, size: '18.9 GB', alloc: '18.2 GB', items: '42,320', files: '36,904', folders: '5,416', mod: '05/11/2026 15:44' },
+      { id: 'recovery', depth: 1, dim: true, name: 'Recovery', path: 'C:\\Recovery', pct: 0.8, size: '2.3 GB', alloc: '2.3 GB', items: '674', files: '612', folders: '62', mod: '14/03/2026 06:51' },
+      { id: 'tools', depth: 1, name: 'Tools', path: 'C:\\Tools', pct: 0.3, size: '864.2 MB', alloc: '866.5 MB', items: '1,666', files: '1,512', folders: '154', mod: '30/09/2026 13:18' },
+      { id: 'sql', depth: 1, name: 'sqlexpress2008r2bin_x64', path: 'C:\\sqlexpress2008r2bin_x64', pct: 0.2, size: '607.0 MB', alloc: '609.8 MB', items: '2,153', files: '2,018', folders: '135', mod: '11/02/2024 19:07' },
+      { id: 'sysint', depth: 1, name: 'SysinternalsSuite', path: 'C:\\SysinternalsSuite', pct: 0.04, size: '133.4 MB', alloc: '133.8 MB', items: '280', files: '280', folders: '0', mod: '02/06/2026 21:40' },
+      { id: 'extend', depth: 1, dim: true, name: '$Extend', path: 'C:\\$Extend', pct: 0.02, size: '66.0 MB', alloc: '110.6 MB', items: '22', files: '16', folders: '6', mod: '05/11/2026 15:47' },
+      { id: 'svi', depth: 1, dim: true, name: 'System Volume Information', path: 'C:\\System Volume Information', pct: 0.02, size: '78.2 MB', alloc: '43.2 MB', items: '35', files: '29', folders: '6', mod: '05/11/2026 08:02' }
+    ];
+    var self = this;
+    var selId = this.state.selected;
+    var sel = data[2];
+    var rows = data.map(function (r) {
+      var isSel = r.id === selId;
+      if (isSel) sel = r;
+      var hasKids = r.kind !== 'files';
+      return Object.assign({}, r, {
+        isDrive: r.kind === 'drive',
+        isFiles: r.kind === 'files',
+        isFolder: !r.kind,
+        indent: 4 + r.depth * 18,
+        chev: hasKids ? (r.exp ? '▾' : '▸') : '',
+        marker: isSel ? '▶' : '',
+        pctTxt: (r.pct < 0.05 ? '0.0' : r.pct.toFixed(1)) + ' %',
+        bg: isSel ? '#fff6c2' : '#ffffff',
+        line: isSel ? '#e8d98a' : '#edf0f4',
+        outline: isSel ? '2px solid #1e2a38' : 'none',
+        color: r.dim ? '#6b7684' : '#1f2933',
+        icon: r.dim ? '#d9c891' : '#d9a520',
+        iconFront: r.dim ? '#ebdcab' : '#f2c447',
+        pick: function () { self.setState({ selected: r.id }); }
+      });
+    });
+    return {
+      rows: rows,
+      sel: sel,
+      barColor: this.props.barColor ?? '#8fa7cf',
+      bigFiles: [
+        { name: 'ext4.vhdx', dir: 'C:\\Users\\youssef\\AppData\\Local\\Docker\\wsl\\disk', size: '38.4 GB', kind: 'WSL virtual disk', dot: '#c08a1a' },
+        { name: 'hiberfil.sys', dir: 'C:\\', size: '12.7 GB', kind: 'System · hibernation', dot: '#8a94a3' },
+        { name: 'pagefile.sys', dir: 'C:\\', size: '9.0 GB', kind: 'System · page file', dot: '#8a94a3' },
+        { name: 'ext4.vhdx', dir: 'C:\\Users\\youssef\\AppData\\Local\\Packages\\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\\LocalState', size: '8.2 GB', kind: 'WSL virtual disk', dot: '#c08a1a' },
+        { name: 'Win11_24H2_French_x64.iso', dir: 'C:\\Users\\youssef\\Downloads', size: '5.4 GB', kind: 'Installer · removable', dot: '#2e8b3e' },
+        { name: 'MEMORY.DMP', dir: 'C:\\Windows', size: '2.1 GB', kind: 'Crash dump · removable', dot: '#2e8b3e' }
+      ],
+      tiles: [
+        { name: 'AppData', size: '65.5 GB · 52.4 %', x: 0, y: 0, w: 236, h: 180, bg: '#3d5370', fg: '#ffffff' },
+        { name: '.nuget', size: '17.8 GB · 14.2 %', x: 236, y: 0, w: 110, h: 101, bg: '#56709a', fg: '#ffffff' },
+        { name: 'source', size: '13.7 GB', x: 236, y: 101, w: 110, h: 79, bg: '#6f88b3', fg: '#ffffff' },
+        { name: 'Downloads', size: '11.6 GB', x: 346, y: 0, w: 94, h: 72, bg: '#a9bbd8', fg: '#1f2933' },
+        { name: 'OneDrive', size: '7.6 GB', x: 346, y: 72, w: 94, h: 47, bg: '#c3d0e4', fg: '#1f2933' },
+        { name: 'Other (34)', size: '8.8 GB', x: 346, y: 119, w: 94, h: 61, bg: '#dbe3ee', fg: '#1f2933' }
+      ]
+    };
+  }
+}
+
+var comp=new Component({});
+function render(){var r=document.getElementById('root');r.innerHTML='';proc(document.getElementById('tpl').content,comp.renderVals(),r);}
+render();
+</script>
+</body>
+</html>

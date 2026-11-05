@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AppName" xml:space="preserve"><value>DiskTreeScanner</value></data>
+  <data name="MenuFile" xml:space="preserve"><value>File</value></data>
+  <data name="MenuScan" xml:space="preserve"><value>Scan</value></data>
+  <data name="MenuView" xml:space="preserve"><value>View</value></data>
+  <data name="MenuOptions" xml:space="preserve"><value>Options</value></data>
+  <data name="MenuHelp" xml:space="preserve"><value>Help</value></data>
+  <data name="ScanFolder" xml:space="preserve"><value>Scan a folder…</value></data>
+  <data name="ExportReport" xml:space="preserve"><value>Export report</value></data>
+  <data name="ExportReportMenu" xml:space="preserve"><value>Export selection to CSV…</value></data>
+  <data name="OpenLogFolder" xml:space="preserve"><value>Open log folder</value></data>
+  <data name="Exit" xml:space="preserve"><value>Exit</value></data>
+  <data name="Scan" xml:space="preserve"><value>Scan</value></data>
+  <data name="Stop" xml:space="preserve"><value>Stop</value></data>
+  <data name="Refresh" xml:space="preserve"><value>Refresh</value></data>
+  <data name="RestartAsAdmin" xml:space="preserve"><value>Restart as administrator</value></data>
+  <data name="SizeUnit" xml:space="preserve"><value>Size unit</value></data>
+  <data name="UnitAuto" xml:space="preserve"><value>Auto</value></data>
+  <data name="ShowFilesInTree" xml:space="preserve"><value>Show files row in the tree</value></data>
+  <data name="GoUp" xml:space="preserve"><value>Go up one level</value></data>
+  <data name="ActivityLog" xml:space="preserve"><value>Activity log</value></data>
+  <data name="IncludeSpecial" xml:space="preserve"><value>Include NTFS special files</value></data>
+  <data name="IncludeStreams" xml:space="preserve"><value>Include alternate data streams</value></data>
+  <data name="HardLinks" xml:space="preserve"><value>Hard links</value></data>
+  <data name="HardLinksOnce" xml:space="preserve"><value>Count once (first link)</value></data>
+  <data name="HardLinksEach" xml:space="preserve"><value>Count on every link</value></data>
+  <data name="HardLinksMixed" xml:space="preserve"><value>Size on every link, allocation once</value></data>
+  <data name="ForceDirectoryScan" xml:space="preserve"><value>Force directory scan (no raw disk access)</value></data>
+  <data name="OptionsApplyNext" xml:space="preserve"><value>Scan options apply to the next scan.</value></data>
+  <data name="About" xml:space="preserve"><value>About DiskTreeScanner</value></data>
+  <data name="Shortcuts" xml:space="preserve"><value>Keyboard shortcuts</value></data>
+  <data name="ShortcutsText" xml:space="preserve"><value>F5  Scan · Esc  Stop / clear search · Ctrl+R  Refresh
+Ctrl+F  Search · Enter in search  Find · Ctrl+E  Export CSV
+Arrows  Move · Right/Left  Expand/Collapse · Enter  Drill in · Backspace  Up
+Ctrl+C  Copy path · Shift+F10  Context menu</value></data>
+  <data name="AboutText" xml:space="preserve"><value>DiskTreeScanner {0}
+Disk space analyzer reading the NTFS master file table directly.
+No telemetry: nothing leaves this computer.</value></data>
+  <data name="Select" xml:space="preserve"><value>Select:</value></data>
+  <data name="BrowseFolder" xml:space="preserve"><value>Browse folder…</value></data>
+  <data name="Search" xml:space="preserve"><value>Search (Ctrl+F)</value></data>
+  <data name="SearchPlaceholder" xml:space="preserve"><value>*.vhdx, node_modules…</value></data>
+  <data name="FilterTip" xml:space="preserve"><value>Filter the tree with the search pattern</value></data>
+  <data name="OpenInExplorer" xml:space="preserve"><value>Open in Explorer</value></data>
+  <data name="TreeView" xml:space="preserve"><value>Tree View</value></data>
+  <data name="DescriptionMft" xml:space="preserve"><value>Space used by every folder of {0}, read from the NTFS master file table. Sorted by {1} · double-click a folder to drill in.</value></data>
+  <data name="DescriptionDirectory" xml:space="preserve"><value>Space used by every folder of {0}, listed folder by folder. Sorted by {1} · double-click a folder to drill in.</value></data>
+  <data name="DescriptionEmpty" xml:space="preserve"><value>Choose a drive, a WSL distribution or a folder, then click Scan.</value></data>
+  <data name="KpiSelection" xml:space="preserve"><value>SELECTION</value></data>
+  <data name="KpiTotal" xml:space="preserve"><value>TOTAL SPACE</value></data>
+  <data name="KpiUsed" xml:space="preserve"><value>SPACE USED</value></data>
+  <data name="KpiFree" xml:space="preserve"><value>SPACE FREE</value></data>
+  <data name="KpiItems" xml:space="preserve"><value>ITEMS</value></data>
+  <data name="KpiLastScan" xml:space="preserve"><value>LAST SCAN</value></data>
+  <data name="BelowTenPercent" xml:space="preserve"><value>below 10 %</value></data>
+  <data name="FilesAndFolders" xml:space="preserve"><value>{0} files · {1} folders</value></data>
+  <data name="EngineMft" xml:space="preserve"><value>MFT read</value></data>
+  <data name="EngineDirectory" xml:space="preserve"><value>Directory scan</value></data>
+  <data name="Scanning" xml:space="preserve"><value>Scanning…</value></data>
+  <data name="NotScanned" xml:space="preserve"><value>not scanned</value></data>
+  <data name="Folders" xml:space="preserve"><value>FOLDERS</value></data>
+  <data name="FoldersCaption" xml:space="preserve"><value>{0} top-level entries · sorted by {1} · greyed: hidden or system folders</value></data>
+  <data name="FilteredCaption" xml:space="preserve"><value>filtered by "{0}" · {1} matches · {2}</value></data>
+  <data name="GroupFolder" xml:space="preserve"><value>FOLDER</value></data>
+  <data name="GroupSize" xml:space="preserve"><value>SIZE</value></data>
+  <data name="GroupContent" xml:space="preserve"><value>CONTENT</value></data>
+  <data name="GroupLastChange" xml:space="preserve"><value>LAST CHANGE</value></data>
+  <data name="ColFolder" xml:space="preserve"><value>Folder</value></data>
+  <data name="ColPercent" xml:space="preserve"><value>% of Parent</value></data>
+  <data name="ColSize" xml:space="preserve"><value>Size</value></data>
+  <data name="ColAllocated" xml:space="preserve"><value>Allocated</value></data>
+  <data name="ColItems" xml:space="preserve"><value>Items</value></data>
+  <data name="ColFiles" xml:space="preserve"><value>Files</value></data>
+  <data name="ColFolders" xml:space="preserve"><value>Folders</value></data>
+  <data name="ColModified" xml:space="preserve"><value>Modified</value></data>
+  <data name="ColName" xml:space="preserve"><value>Name</value></data>
+  <data name="ColFile" xml:space="preserve"><value>File</value></data>
+  <data name="ColKind" xml:space="preserve"><value>Kind</value></data>
+  <data name="FilesRow" xml:space="preserve"><value>[{0} Files in {1}]</value></data>
+  <data name="LargestFiles" xml:space="preserve"><value>LARGEST FILES</value></data>
+  <data name="LargestCaption" xml:space="preserve"><value>top {0} of {1} · in the selection and below</value></data>
+  <data name="SearchResults" xml:space="preserve"><value>SEARCH RESULTS</value></data>
+  <data name="SearchCaption" xml:space="preserve"><value>"{0}" · {1} matches · {2} · Esc to clear</value></data>
+  <data name="Searching" xml:space="preserve"><value>searching…</value></data>
+  <data name="GroupFile" xml:space="preserve"><value>FILE</value></data>
+  <data name="GroupLocation" xml:space="preserve"><value>LOCATION</value></data>
+  <data name="GroupSizeKind" xml:space="preserve"><value>SIZE · KIND</value></data>
+  <data name="Treemap" xml:space="preserve"><value>TREEMAP</value></data>
+  <data name="Other" xml:space="preserve"><value>Other ({0})</value></data>
+  <data name="FooterScan" xml:space="preserve"><value>Last scan {0} · {1} scanned · {2} allocated · {3} slack</value></data>
+  <data name="FooterSelection" xml:space="preserve"><value>Selection: {0} — {1}</value></data>
+  <data name="StatusComplete" xml:space="preserve"><value>Scan complete in {0} — {1} items</value></data>
+  <data name="StatusScanning" xml:space="preserve"><value>Scanning {0} — {1}</value></data>
+  <data name="StatusMftProgress" xml:space="preserve"><value>MFT {0} / {1} · {2} records/s</value></data>
+  <data name="StatusDirProgress" xml:space="preserve"><value>{0} items in {1} folders · {2} items/s</value></data>
+  <data name="StatusCancelled" xml:space="preserve"><value>Scan cancelled</value></data>
+  <data name="StatusFailed" xml:space="preserve"><value>Scan failed: {0}</value></data>
+  <data name="StatusReady" xml:space="preserve"><value>Ready</value></data>
+  <data name="StatusRefreshed" xml:space="preserve"><value>Refreshed from the USN journal in {0} — {1} changes</value></data>
+  <data name="StatusExported" xml:space="preserve"><value>Exported {0} rows to {1}</value></data>
+  <data name="StatusExporting" xml:space="preserve"><value>Exporting {0}…</value></data>
+  <data name="FreeIndicator" xml:space="preserve"><value>{0} {1} free</value></data>
+  <data name="IndicatorMft" xml:space="preserve"><value>NTFS · MFT direct read</value></data>
+  <data name="IndicatorDirectory" xml:space="preserve"><value>{0} · directory scan</value></data>
+  <data name="IndicatorWsl" xml:space="preserve"><value>WSL: {0}</value></data>
+  <data name="IndicatorNoWsl" xml:space="preserve"><value>WSL: none running</value></data>
+  <data name="Logs" xml:space="preserve"><value>Logs</value></data>
+  <data name="AdminBanner" xml:space="preserve"><value>DiskTreeScanner is not running as administrator: folders are listed one by one (slower, protected folders may be skipped). The MFT engine needs elevation.</value></data>
+  <data name="CtxOpen" xml:space="preserve"><value>Open</value></data>
+  <data name="CtxCopyPath" xml:space="preserve"><value>Copy path</value></data>
+  <data name="CtxProperties" xml:space="preserve"><value>Properties</value></data>
+  <data name="CtxDrillIn" xml:space="preserve"><value>Drill in</value></data>
+  <data name="KindWslDisk" xml:space="preserve"><value>WSL virtual disk</value></data>
+  <data name="KindVirtualDisk" xml:space="preserve"><value>Virtual disk</value></data>
+  <data name="KindHibernation" xml:space="preserve"><value>System · hibernation</value></data>
+  <data name="KindPageFile" xml:space="preserve"><value>System · page file</value></data>
+  <data name="KindSwapFile" xml:space="preserve"><value>System · swap file</value></data>
+  <data name="KindNtfsMetadata" xml:space="preserve"><value>System · NTFS metadata</value></data>
+  <data name="KindSystem" xml:space="preserve"><value>System file</value></data>
+  <data name="KindInstaller" xml:space="preserve"><value>Installer · removable</value></data>
+  <data name="KindDump" xml:space="preserve"><value>Crash dump · removable</value></data>
+  <data name="KindArchive" xml:space="preserve"><value>Archive</value></data>
+  <data name="KindVideo" xml:space="preserve"><value>Video</value></data>
+  <data name="KindDatabase" xml:space="preserve"><value>Database</value></data>
+  <data name="KindLog" xml:space="preserve"><value>Log · removable</value></data>
+  <data name="KindFile" xml:space="preserve"><value>File</value></data>
+  <data name="ExportTitle" xml:space="preserve"><value>Export the selection to CSV</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>Choose a folder to scan</value></data>
+  <data name="NothingToExport" xml:space="preserve"><value>Scan something first.</value></data>
+  <data name="LogTitle" xml:space="preserve"><value>DiskTreeScanner — activity log</value></data>
+  <data name="CopyAll" xml:space="preserve"><value>Copy all</value></data>
+  <data name="Close" xml:space="preserve"><value>Close</value></data>
+  <data name="Minimize" xml:space="preserve"><value>Minimize</value></data>
+  <data name="Maximize" xml:space="preserve"><value>Maximize</value></data>
+  <data name="RestoreDown" xml:space="preserve"><value>Restore</value></data>
+  <data name="UnitB" xml:space="preserve"><value>B</value></data>
+  <data name="UnitKB" xml:space="preserve"><value>KB</value></data>
+  <data name="UnitMB" xml:space="preserve"><value>MB</value></data>
+  <data name="UnitGB" xml:space="preserve"><value>GB</value></data>
+  <data name="UnitTB" xml:space="preserve"><value>TB</value></data>
+  <data name="FilterNameHint" xml:space="preserve"><value>Name pattern: wildcards * and ?, several patterns separated by ; (e.g. *.vhdx; node_modules).</value></data>
+  <data name="FilterBytesHint" xml:space="preserve"><value>Sizes such as 500 MB, 1.5 GB or 200 KB (no unit: MB). Applies to files; folder totals follow.</value></data>
+  <data name="FilterPercentHint" xml:space="preserve"><value>Share of the parent folder, from 0 to 100.</value></data>
+  <data name="FilterCountHint" xml:space="preserve"><value>Applies to folders: count of what they contain.</value></data>
+  <data name="FilterMin" xml:space="preserve"><value>Min</value></data>
+  <data name="FilterMax" xml:space="preserve"><value>Max</value></data>
+  <data name="FilterFrom" xml:space="preserve"><value>From</value></data>
+  <data name="FilterTo" xml:space="preserve"><value>To</value></data>
+  <data name="Preset7Days" xml:space="preserve"><value>Last 7 days</value></data>
+  <data name="Preset30Days" xml:space="preserve"><value>Last 30 days</value></data>
+  <data name="PresetYear" xml:space="preserve"><value>Last year</value></data>
+  <data name="PresetOlderYear" xml:space="preserve"><value>Older than a year</value></data>
+  <data name="FilterApply" xml:space="preserve"><value>Apply</value></data>
+  <data name="FilterClear" xml:space="preserve"><value>Clear</value></data>
+  <data name="FilterInvalid" xml:space="preserve"><value>Invalid value.</value></data>
+  <data name="FilterMinAboveMax" xml:space="preserve"><value>The minimum is above the maximum.</value></data>
+  <data name="ColumnFilteredCaption" xml:space="preserve"><value>filtered: {0} · {1} files kept · {2}</value></data>
+  <data name="ColumnRowFilteredCaption" xml:space="preserve"><value>filtered: {0}</value></data>
+  <data name="NameFilterPrefix" xml:space="preserve"><value>&quot;{0}&quot; · </value></data>
+  <data name="CtxCopy" xml:space="preserve"><value>Copy</value></data>
+  <data name="CtxCopyFullPath" xml:space="preserve"><value>Full path</value></data>
+  <data name="CtxCopyName" xml:space="preserve"><value>Name</value></data>
+  <data name="CtxCopySize" xml:space="preserve"><value>Size ({0})</value></data>
+  <data name="CtxCopyParent" xml:space="preserve"><value>Parent folder path</value></data>
+  <data name="CtxFilterExtension" xml:space="preserve"><value>Filter on {0}</value></data>
+  <data name="CtxClearFilters" xml:space="preserve"><value>Clear all filters</value></data>
+  <data name="KeyEnter" xml:space="preserve"><value>Enter</value></data>
+  <data name="KeyAltEnter" xml:space="preserve"><value>Alt+Enter</value></data>
+  <data name="KeyBackspace" xml:space="preserve"><value>Backspace</value></data>
+  <data name="PillDrive" xml:space="preserve"><value>Drive</value></data>
+</root>

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Scan engines, data model and analysis. No UI dependency: reusable from any .NET 8 Windows shell. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>DiskTreeScanner.Core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="DiskTreeScanner.Ntfs" />
+    <InternalsVisibleTo Include="DiskTreeScanner.Tests" />
+    <InternalsVisibleTo Include="DiskTreeScanner.Bench" />
+  </ItemGroup>
+
+</Project>

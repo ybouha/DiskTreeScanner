@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Direct NTFS master file table reader (P/Invoke + unsafe). -->
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>DiskTreeScanner.Ntfs</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DiskTreeScanner.Core\DiskTreeScanner.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="DiskTreeScanner.Tests" />
+    <InternalsVisibleTo Include="DiskTreeScanner.Bench" />
+  </ItemGroup>
+
+</Project>
