@@ -8,6 +8,8 @@ model, so the UI behaves identically.
 
 C# 12 · .NET 8 · WinForms · x64 · no third-party runtime dependencies.
 
+![DiskTreeScanner scanning C:\Program Files through the MFT engine](docs/screenshot.png)
+
 ---
 
 ## Quick start
