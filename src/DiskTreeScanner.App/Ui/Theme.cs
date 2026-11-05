@@ -1,6 +1,6 @@
 namespace DiskTreeScanner.App.Ui;
 
-/// <summary>Colors and fonts of the mockup (mockup\FolderSizes-maquette.html), DPI-aware.</summary>
+/// <summary>Colors and fonts of the UI, DPI-aware.</summary>
 /// <remarks>
 /// Sizes are given in CSS pixels at 96 DPI and scaled to the DPI of the monitor showing the control
 /// (per-monitor v2). GDI converts points to pixels with the system DPI, so a font for a control on a

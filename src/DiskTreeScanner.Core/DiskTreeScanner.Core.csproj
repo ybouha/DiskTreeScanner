@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <InternalsVisibleTo Include="DiskTreeScanner.Ntfs" />
-    <InternalsVisibleTo Include="DiskTreeScanner.Tests" />
-    <InternalsVisibleTo Include="DiskTreeScanner.Bench" />
   </ItemGroup>
 
 </Project>

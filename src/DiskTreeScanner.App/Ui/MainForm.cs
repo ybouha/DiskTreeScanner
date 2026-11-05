@@ -12,7 +12,7 @@ using DiskTreeScanner.Ntfs.Usn;
 
 namespace DiskTreeScanner.App.Ui;
 
-/// <summary>Main window, laid out after mockup\FolderSizes-maquette.html (reference size 1440×900).</summary>
+/// <summary>Main window (reference layout size 1440×900).</summary>
 internal sealed partial class MainForm : Form
 {
     private const int TitleHeight = 32;

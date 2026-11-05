@@ -10,9 +10,4 @@
     <ProjectReference Include="..\DiskTreeScanner.Core\DiskTreeScanner.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <InternalsVisibleTo Include="DiskTreeScanner.Tests" />
-    <InternalsVisibleTo Include="DiskTreeScanner.Bench" />
-  </ItemGroup>
-
 </Project>

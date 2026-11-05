@@ -34,16 +34,14 @@ cd DiskTreeScanner
 
 (or `gh repo clone ybouha/DiskTreeScanner`)
 
-### Build, test, run
+### Build and run
 
 ```powershell
 dotnet build DiskTreeScanner.sln -c Release
-dotnet test  tests\DiskTreeScanner.Tests -c Release
 dotnet run   -c Release --project src\DiskTreeScanner.App
 ```
 
-Expected: build with 0 warnings / 0 errors, 68 tests passing. One test compares both engines
-against the live MFT and is skipped unless the console is elevated.
+Expected: build with 0 warnings / 0 errors.
 
 To exercise the fast path, start the app **as administrator** (or click *Restart as
 administrator* in the banner shown when it is not elevated). Without elevation it still works,
@@ -52,8 +50,7 @@ using the directory engine.
 ### Publish
 
 ```powershell
-dotnet publish src\DiskTreeScanner.App  -c Release -o publish\app   # single DiskTreeScanner.exe, ~1.3 MB, ReadyToRun
-dotnet publish tools\DiskTreeScanner.Cli -c Release -o publish\cli
+dotnet publish src\DiskTreeScanner.App -c Release -o publish\app   # single DiskTreeScanner.exe, ~1.3 MB, ReadyToRun
 ```
 
 The app is framework-dependent (needs the .NET 8 Desktop Runtime). For a self-contained ~63 MB
@@ -66,7 +63,7 @@ Trimming is not supported by WinForms (NETSDK1175).
 
 A short checklist for a first review:
 
-1. **Build & tests** — commands above, clean output.
+1. **Build** — commands above, clean output.
 2. **Non-elevated run** — app opens, banner offers elevation, scan of a user folder completes
    (directory engine; the activity log says `MFT engine skipped: not elevated`).
 3. **Elevated run on `C:\`** — scan completes in a few seconds; totals look sane next to
@@ -74,8 +71,6 @@ A short checklist for a first review:
 4. **UI** — expand/collapse, sort by column, column filters (funnel icons), search with `Ctrl+F`
    (`*.iso; *.vhdx`), context menu, *Largest files* and treemap panels, EN/FR switch.
 5. **Refresh** (`Ctrl+R`) after creating/deleting files — incremental via the USN journal on NTFS.
-6. **CLI** — `publish\cli\DiskTreeScanner.Cli.exe C:\ --repeat 3` prints per-phase timings and
-   peak memory.
 
 Feedback via GitHub issues or PR comments is welcome.
 
@@ -88,11 +83,7 @@ Feedback via GitHub issues or PR comments is welcome.
 | `src/DiskTreeScanner.Core` | Data model (struct-of-arrays tree), tree builder, aggregation, directory fallback engine, analyses (largest files, search, treemap, CSV export). No UI dependency. |
 | `src/DiskTreeScanner.Ntfs` | Raw MFT reader (`LibraryImport`, `unsafe`), FILE-record parser, USN-journal incremental refresh. |
 | `src/DiskTreeScanner.App` | WinForms shell → `DiskTreeScanner.exe`. Owner-drawn virtual tree grid, treemap, custom dark chrome. |
-| `tools/DiskTreeScanner.Cli` | Headless scanner: per-phase timings, totals, memory, USN self-test. |
-| `tests/DiskTreeScanner.Tests` | xUnit: synthetic MFT records, parser robustness, filters, engine consistency on a real folder. |
-| `bench/DiskTreeScanner.Bench` | BenchmarkDotNet: record parsing, tree build, aggregation. |
-| `mockup/` | HTML mockup the UI was built against. |
-| `docs/` | Design notes, detailed measurements, counting rules (French). |
+| `docs/` | README screenshot. |
 
 Shared build settings (language version, nullable, x64, embedded symbols, version) live in
 `Directory.Build.props`.
@@ -123,7 +114,7 @@ Key decisions:
 - **No object per file.** Columns (`Parent`, `SubtreeEnd`, `Size`, `Allocated`, `Flags`,
   `Modified`, name offset) in flat arrays. Nodes are renumbered in DFS pre-order, so "everything
   under X" is a contiguous range: filtering, top-N, search and export are linear scans.
-- **Disk-bound, not CPU-bound.** Parsing runs at ~11 GB/s on 15 threads in benchmarks; the
+- **Disk-bound, not CPU-bound.** Parsing runs at ~11 GB/s on 15 threads; the
   reader saturates the NVMe at ~1.2 GB/s. Free MFT ranges (from `$MFT::$BITMAP`) are never read.
 - **Defensive parsing.** Fixups are mandatory, every attribute is bounds-checked, bad records are
   counted and skipped. Tree build and aggregation are iterative; dangling parents and reference
@@ -134,7 +125,13 @@ Key decisions:
 - **UI thread never blocks.** Scan, refresh, search, largest-files and export run as cancellable
   background tasks.
 
-Counting rules (hard links, ADS, NTFS metafiles, WOF/compressed/sparse) are documented in [`docs/DESIGN-NOTES.fr.md`](docs/DESIGN-NOTES.fr.md).
+Counting rules:
+
+- **Hard links** — counted once, on the first link, by default; options count them on every
+  link, or size on every link with allocation once.
+- **Named streams (ADS)** — tracked separately, added to file sizes only when enabled.
+- **NTFS metafiles** (`$MFT`, `$LogFile`, `$Extend\…`) — included by default (option).
+- **Resident, compressed, sparse, WOF files** — real allocation (0 for MFT-resident data).
 
 ---
 
@@ -150,33 +147,21 @@ Ryzen 7 PRO 4750U, Samsung 970 EVO Plus NVMe, Windows 11, .NET 8.0.33, `C:` = 33
 | Directory engine, `C:\` | 21–37 s, 291 MB peak |
 | USN refresh | 30–270 ms depending on change type |
 
-Full per-phase breakdown and benchmark tables: [`docs/DESIGN-NOTES.fr.md`](docs/DESIGN-NOTES.fr.md).
-
-```powershell
-dotnet run -c Release --project bench\DiskTreeScanner.Bench -- --filter *
-```
-
 ---
 
-## CLI
+## Automation switches
 
-```text
-DiskTreeScanner.Cli <path> [options]
-DiskTreeScanner.Cli --usn-test [FOLDER]
+`DiskTreeScanner.exe` accepts a few switches used for UI verification. They never touch the
+saved settings.
 
-  --engine auto|mft|dir        auto = MFT when elevated on NTFS, else directory engine
-  --no-special                 exclude NTFS metafiles ($MFT, $LogFile, $Extend…)
-  --ads                        add named streams to file sizes
-  --hardlinks once|each|mixed
-  --top N, --depth N           largest files / folder levels printed
-  --csv FILE                   export the tree as CSV
-  --repeat N                   N scans: best / mean / worst
-  --verbose                    print the activity log
-  --help                       all options, including engine tuning knobs
-```
-
-The app also has automation switches (`--screenshot`, `--ui-bench`, `--select`, `--size`,
-`--lang`, `--scale`, …) used for UI verification; see the design notes.
+| Switch | Effect |
+|---|---|
+| `--screenshot FILE.png PATH` | Scan PATH, save a window capture, exit. |
+| `--ui-bench FILE.txt PATH` | Scan PATH, time selection / expand / scroll / paint, exit. |
+| `--select RELATIVE\PATH` | Select and expand this folder before the capture. |
+| `--size WxH` | Window size in DIP. |
+| `--lang en\|fr` | UI language. |
+| `--scale 1.5` | Simulate 150 % DPI. |
 
 ---
 
